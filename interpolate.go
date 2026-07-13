@@ -391,8 +391,8 @@ func cqlInterpolate(query string, args ...interface{}) (string, error) {
 	return mysqlLikeInterpolate(CQL, query, args...)
 }
 
-func clickhouseInterpolate(query string, args ...interface{}) (string, error) {
-	return mysqlLikeInterpolate(ClickHouse, query, args...)
+func datastoreInterpolate(query string, args ...interface{}) (string, error) {
+	return mysqlLikeInterpolate(Datastore, query, args...)
 }
 
 func prestoInterpolate(query string, args ...interface{}) (string, error) {
@@ -594,7 +594,7 @@ func encodeValue(buf []byte, arg interface{}, flavor Flavor) ([]byte, error) {
 		v = v.Add(500 * time.Nanosecond)
 
 		switch flavor {
-		case MySQL, ClickHouse, Informix, Doris:
+		case MySQL, Datastore, Informix, Doris:
 			buf = append(buf, v.Format("'2006-01-02 15:04:05.999999'")...)
 
 		case PostgreSQL:
@@ -734,7 +734,7 @@ func encodeValue(buf []byte, arg interface{}, flavor Flavor) ([]byte, error) {
 				buf = append(buf, "0x"...)
 				buf = appendHex(buf, data)
 
-			case ClickHouse:
+			case Datastore:
 				buf = append(buf, "unhex('"...)
 				buf = appendHex(buf, data)
 				buf = append(buf, "')"...)

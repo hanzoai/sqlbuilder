@@ -1,0 +1,1 @@
+Fork of github.com/huandu/go-sqlbuilder (MIT), renamed to github.com/hanzoai/sqlbuilder; the ClickHouse SQL-dialect flavor constant is renamed to Datastore for the Hanzo datastore debrand. Behavior unchanged.

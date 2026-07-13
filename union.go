@@ -250,7 +250,7 @@ func (ub *UnionBuilder) BuildWithFlavor(flavor Flavor, initialArg ...interface{}
 	}
 
 	switch flavor {
-	case MySQL, SQLite, ClickHouse:
+	case MySQL, SQLite, Datastore:
 		if len(ub.limitVar) > 0 {
 			buf.WriteLeadingString("LIMIT ")
 			buf.WriteString(ub.limitVar)

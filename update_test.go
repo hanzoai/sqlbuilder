@@ -158,9 +158,9 @@ func TestUpdateBuilderGetFlavor(t *testing.T) {
 	flavor := ub.Flavor()
 	a.Equal(PostgreSQL, flavor)
 
-	ubClick := ClickHouse.NewUpdateBuilder()
+	ubClick := Datastore.NewUpdateBuilder()
 	flavor = ubClick.Flavor()
-	a.Equal(ClickHouse, flavor)
+	a.Equal(Datastore, flavor)
 }
 
 func ExampleUpdateBuilder_Returning() {
@@ -202,7 +202,7 @@ func TestUpdateBuilderReturning(t *testing.T) {
 	sql, _ = ub.BuildWithFlavor(CQL)
 	a.Equal("UPDATE user SET name = ? WHERE id = ?", sql)
 
-	sql, _ = ub.BuildWithFlavor(ClickHouse)
+	sql, _ = ub.BuildWithFlavor(Datastore)
 	a.Equal("UPDATE user SET name = ? WHERE id = ?", sql)
 
 	sql, _ = ub.BuildWithFlavor(Presto)
@@ -307,7 +307,7 @@ func TestUpdateBuilderFrom(t *testing.T) {
 	sql, _ = ub.BuildWithFlavor(CQL)
 	a.Equal("UPDATE user SET name = ? WHERE id = ?", sql)
 
-	sql, _ = ub.BuildWithFlavor(ClickHouse)
+	sql, _ = ub.BuildWithFlavor(Datastore)
 	a.Equal("UPDATE user SET name = ? WHERE id = ?", sql)
 
 	sql, _ = ub.BuildWithFlavor(Presto)

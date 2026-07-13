@@ -249,7 +249,7 @@ The older `OrderBy` method combined with `Asc`/`Desc` is still available but dep
 
 SQL syntax and parameter placeholders can differ across systems. To address these variations, this package introduces a concept termed "flavor".
 
-Currently, flavors such as `MySQL`, `PostgreSQL`, `SQLite`, `SQLServer`, `CQL`, `ClickHouse`, `Presto`, `Oracle` and `Informix` are supported. Should there be a demand for additional flavors, please submit an issue or a pull request.
+Currently, flavors such as `MySQL`, `PostgreSQL`, `SQLite`, `SQLServer`, `CQL`, `Datastore`, `Presto`, `Oracle` and `Informix` are supported. Should there be a demand for additional flavors, please submit an issue or a pull request.
 
 By default, all builders utilize `DefaultFlavor` for SQL construction, with `MySQL` as the default setting.
 

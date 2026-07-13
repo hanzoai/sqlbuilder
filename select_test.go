@@ -144,7 +144,7 @@ func ExampleSelectBuilder_nestedJoin() {
 }
 
 func ExampleSelectBuilder_limit_offset() {
-	flavors := []Flavor{MySQL, PostgreSQL, SQLite, SQLServer, CQL, ClickHouse, Presto, Oracle, Informix, Doris}
+	flavors := []Flavor{MySQL, PostgreSQL, SQLite, SQLServer, CQL, Datastore, Presto, Oracle, Informix, Doris}
 	results := make([][]string, len(flavors))
 	sb := NewSelectBuilder()
 	saveResults := func() {
@@ -245,7 +245,7 @@ func ExampleSelectBuilder_limit_offset() {
 	// #4: SELECT * FROM user LIMIT ?
 	// #5: SELECT * FROM user ORDER BY id LIMIT ?
 	//
-	// ClickHouse
+	// Datastore
 	// #1: SELECT * FROM user
 	// #2: SELECT * FROM user
 	// #3: SELECT * FROM user LIMIT ? OFFSET ?
@@ -413,9 +413,9 @@ func TestSelectBuilderGetFlavor(t *testing.T) {
 	flavor := sb.Flavor()
 	a.Equal(PostgreSQL, flavor)
 
-	sbClick := ClickHouse.NewSelectBuilder()
+	sbClick := Datastore.NewSelectBuilder()
 	flavor = sbClick.Flavor()
-	a.Equal(ClickHouse, flavor)
+	a.Equal(Datastore, flavor)
 }
 
 func ExampleSelectBuilder_LateralAs() {

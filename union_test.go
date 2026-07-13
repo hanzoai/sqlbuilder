@@ -100,13 +100,13 @@ func TestUnionBuilderGetFlavor(t *testing.T) {
 	flavor := ub.Flavor()
 	a.Equal(PostgreSQL, flavor)
 
-	ubClick := ClickHouse.NewUnionBuilder()
+	ubClick := Datastore.NewUnionBuilder()
 	flavor = ubClick.Flavor()
-	a.Equal(ClickHouse, flavor)
+	a.Equal(Datastore, flavor)
 }
 
 func ExampleUnionBuilder_limit_offset() {
-	flavors := []Flavor{MySQL, PostgreSQL, SQLite, SQLServer, CQL, ClickHouse, Presto, Oracle, Informix, Doris}
+	flavors := []Flavor{MySQL, PostgreSQL, SQLite, SQLServer, CQL, Datastore, Presto, Oracle, Informix, Doris}
 	results := make([][]string, len(flavors))
 
 	ub := NewUnionBuilder()
@@ -210,7 +210,7 @@ func ExampleUnionBuilder_limit_offset() {
 	// #4: (SELECT * FROM user1) UNION (SELECT * FROM user2) LIMIT ?
 	// #5: (SELECT * FROM user1) UNION (SELECT * FROM user2) ORDER BY id LIMIT ?
 	//
-	// ClickHouse
+	// Datastore
 	// #1: (SELECT * FROM user1) UNION (SELECT * FROM user2)
 	// #2: (SELECT * FROM user1) UNION (SELECT * FROM user2)
 	// #3: (SELECT * FROM user1) UNION (SELECT * FROM user2) LIMIT ? OFFSET ?
