@@ -92,9 +92,9 @@ func TestDeleteBuilderGetFlavor(t *testing.T) {
 	flavor := db.Flavor()
 	a.Equal(PostgreSQL, flavor)
 
-	dbClick := ClickHouse.NewDeleteBuilder()
+	dbClick := Datastore.NewDeleteBuilder()
 	flavor = dbClick.Flavor()
-	a.Equal(ClickHouse, flavor)
+	a.Equal(Datastore, flavor)
 }
 
 func ExampleDeleteBuilder_Returning() {
@@ -134,7 +134,7 @@ func TestDeleteBuilderReturning(t *testing.T) {
 	sql, _ = db.BuildWithFlavor(CQL)
 	a.Equal("DELETE FROM user WHERE id = ?", sql)
 
-	sql, _ = db.BuildWithFlavor(ClickHouse)
+	sql, _ = db.BuildWithFlavor(Datastore)
 	a.Equal("DELETE FROM user WHERE id = ?", sql)
 
 	sql, _ = db.BuildWithFlavor(Presto)

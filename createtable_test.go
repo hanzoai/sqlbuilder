@@ -98,9 +98,9 @@ func TestCreateTableGetFlavor(t *testing.T) {
 	flavor := ctb.Flavor()
 	a.Equal(PostgreSQL, flavor)
 
-	ctbClick := ClickHouse.NewCreateTableBuilder()
+	ctbClick := Datastore.NewCreateTableBuilder()
 	flavor = ctbClick.Flavor()
-	a.Equal(ClickHouse, flavor)
+	a.Equal(Datastore, flavor)
 }
 
 func TestCreateTableClone(t *testing.T) {

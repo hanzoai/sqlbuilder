@@ -132,8 +132,8 @@ func ExampleInsertBuilder_insertIgnore_sqlite() {
 	// [1 Huan Du 1 2 Charmy Liu 1 1234567890]
 }
 
-func ExampleInsertBuilder_insertIgnore_clickhouse() {
-	ib := ClickHouse.NewInsertBuilder()
+func ExampleInsertBuilder_insertIgnore_datastore() {
+	ib := Datastore.NewInsertBuilder()
 	ib.InsertIgnoreInto("demo.user")
 	ib.Cols("id", "name", "status", "created_at")
 	ib.Values(1, "Huan Du", 1, Raw("UNIX_TIMESTAMP(NOW())"))
@@ -280,7 +280,7 @@ func TestInsertBuilderReturning(test *testing.T) {
 	sql, _ = ib.BuildWithFlavor(CQL)
 	a.Equal("INSERT INTO user (name) VALUES (?)", sql)
 
-	sql, _ = ib.BuildWithFlavor(ClickHouse)
+	sql, _ = ib.BuildWithFlavor(Datastore)
 	a.Equal("INSERT INTO user (name) VALUES (?)", sql)
 
 	sql, _ = ib.BuildWithFlavor(Presto)
@@ -301,9 +301,9 @@ func TestInsertBuilderGetFlavor(t *testing.T) {
 	flavor := ib.Flavor()
 	a.Equal(PostgreSQL, flavor)
 
-	ibClick := ClickHouse.NewInsertBuilder()
+	ibClick := Datastore.NewInsertBuilder()
 	flavor = ibClick.Flavor()
-	a.Equal(ClickHouse, flavor)
+	a.Equal(Datastore, flavor)
 }
 
 func TestIssue200(t *testing.T) {

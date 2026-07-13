@@ -360,7 +360,7 @@ func (ctx *argsCompileContext) WriteValue(arg interface{}) {
 
 	default:
 		switch ctx.Flavor {
-		case MySQL, SQLite, CQL, ClickHouse, Presto, Informix, Doris:
+		case MySQL, SQLite, CQL, Datastore, Presto, Informix, Doris:
 			ctx.WriteRune('?')
 		case PostgreSQL:
 			fmt.Fprintf(ctx, "$%d", len(ctx.Values)+1)

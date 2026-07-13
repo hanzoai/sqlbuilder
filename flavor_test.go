@@ -19,7 +19,7 @@ func TestFlavor(t *testing.T) {
 		SQLite:     "SQLite",
 		SQLServer:  "SQLServer",
 		CQL:        "CQL",
-		ClickHouse: "ClickHouse",
+		Datastore:  "Datastore",
 		Oracle:     "Oracle",
 		Informix:   "Informix",
 		Doris:      "Doris",

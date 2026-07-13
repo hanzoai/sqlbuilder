@@ -176,9 +176,9 @@ func TestCTEGetFlavor(t *testing.T) {
 	flavor := cteb.Flavor()
 	a.Equal(PostgreSQL, flavor)
 
-	ctebClick := ClickHouse.NewCTEBuilder()
+	ctebClick := Datastore.NewCTEBuilder()
 	flavor = ctebClick.Flavor()
-	a.Equal(ClickHouse, flavor)
+	a.Equal(Datastore, flavor)
 }
 
 func TestCTEQueryBuilderGetFlavor(t *testing.T) {
@@ -189,9 +189,9 @@ func TestCTEQueryBuilderGetFlavor(t *testing.T) {
 	flavor := ctetb.Flavor()
 	a.Equal(PostgreSQL, flavor)
 
-	ctetbClick := ClickHouse.NewCTEQueryBuilder()
+	ctetbClick := Datastore.NewCTEQueryBuilder()
 	flavor = ctetbClick.Flavor()
-	a.Equal(ClickHouse, flavor)
+	a.Equal(Datastore, flavor)
 }
 
 func TestCTEBuildClone(t *testing.T) {

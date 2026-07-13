@@ -452,7 +452,7 @@ func (sb *SelectBuilder) BuildWithFlavor(flavor Flavor, initialArg ...interface{
 	}
 
 	switch flavor {
-	case MySQL, SQLite, ClickHouse:
+	case MySQL, SQLite, Datastore:
 		if len(sb.limitVar) > 0 {
 			buf.WriteLeadingString("LIMIT ")
 			buf.WriteString(sb.limitVar)
